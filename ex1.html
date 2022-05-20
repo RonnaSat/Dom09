@@ -13,7 +13,7 @@
   <title>Hello, world!</title>
 </head>
 
-<body>
+<body onload="onLoad()">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
@@ -90,30 +90,20 @@
     </form>
   </div>
   <div class="" id="output">
-    <div class="row">
-      <div class="col-1 offset-1">
-        ชิ่อ
-      </div>
-      <div class="col">
-        สมชาย
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1 offset-1">
-        รหัส
-      </div>
-      <div class="col">
-        a@b.com
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1 offset-1">
-        เพศ
-      </div>
-      <div class="col">
-        หญิง
-      </div>
-    </div>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">ID</th>
+          <th scope="col">Gender</th>
+        </tr>
+      </thead>
+      <tbody id="output-table">
+        
+      </tbody>
+      
+    </table>
   </div>
 
   <!-- Optional JavaScript; choose one of the two! -->
