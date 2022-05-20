@@ -59,14 +59,14 @@ function addStudentToTbl(index,student){
     cell = document.createElement('td')
     let div = document.createElement('div')
     let pic = document.createElement('img')
-    pic.setAttribute('src',student.imageLink)
-    pic.setAttribute('alt',student.imageLink)
+    pic.setAttribute('src',student.image)
+    pic.setAttribute('alt',student.image)
     pic.style.width = '150px'
     div.appendChild(pic)
     cell.appendChild(div)
     row.appendChild(cell)
     cell = document.createElement('td')
-    cell.innerHTML = student.gender
+    cell.innerHTML = student.studentId
     row.appendChild(cell)
     tableBody.appendChild(row)
     // console.log(student)
@@ -79,7 +79,7 @@ function addStudentList(studentList) {
 }
 function onLoad() {
     let students
-    fetch('asset/students2.json').then(response => {
+    fetch('http://dv-student-backend-2019.appspot.com/students').then(response => {
         return response.json()
     })
         .then(data => {
