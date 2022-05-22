@@ -44,13 +44,13 @@
 
 // })
 
-function addStudentToTbl(index,student){
+function addStudentToTbl(index, student) {
     const tableBody = document.getElementById('output-table')
-    
-    
+
+
     let row = document.createElement('tr')
     let cell = document.createElement('th')
-    cell.setAttribute('scope','row')
+    cell.setAttribute('scope', 'row')
     cell.innerHTML = index
     row.appendChild(cell)
     cell = document.createElement('td')
@@ -59,8 +59,8 @@ function addStudentToTbl(index,student){
     cell = document.createElement('td')
     let div = document.createElement('div')
     let pic = document.createElement('img')
-    pic.setAttribute('src',student.image)
-    pic.setAttribute('alt',student.image)
+    pic.setAttribute('src', student.image)
+    pic.setAttribute('alt', student.image)
     pic.style.width = '150px'
     div.appendChild(pic)
     cell.appendChild(div)
@@ -77,15 +77,39 @@ function addStudentList(studentList) {
         addStudentToTbl(counter++, student)
     }
 }
+// function onLoad() {
+//     let students
+//     fetch('http://dv-student-backend-2019.appspot.com/students').then(response => {
+//         return response.json()
+//     })
+//         .then(data => {
+//             let students = data
+//             addStudentList(data)
+//         }
+
+//         )
+// }
+
+function addStudentData(student) {
+    let idElem = document.getElementById('id')
+    idElem.innerHTML = student.id
+    let studentIdElem = document.getElementById('studentId')
+    studentIdElem.innerHTML = student.studentId
+    let nameElem = document.getElementById('name')
+    nameElem.innerHTML = `${student.ame} ${student.surname}`
+    let gpaElem = document.getElementById('gpa')
+    gpaElem.innerHTML = student.gpa
+    let profileElem = document.getElementById('image')
+    profileElem.setAttribute('src', student.image)
+}
+
 function onLoad() {
-    let students
-    fetch('http://dv-student-backend-2019.appspot.com/students').then(response => {
+
+    fetch('http://dv-student-backend-2019.appspot.com/student').then(response => {
         return response.json()
     })
         .then(data => {
-            let students = data
-            addStudentList(data)
+            addStudentData(data)
         }
-
         )
 }
