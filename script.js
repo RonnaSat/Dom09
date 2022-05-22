@@ -54,7 +54,7 @@ function addStudentToTbl(index, student) {
     cell.innerHTML = index
     row.appendChild(cell)
     cell = document.createElement('td')
-    cell.innerHTML = student.name
+    cell.innerHTML = `${student.name} ${student.surname}`
     row.appendChild(cell)
     cell = document.createElement('td')
     let div = document.createElement('div')
@@ -62,6 +62,7 @@ function addStudentToTbl(index, student) {
     pic.setAttribute('src', student.image)
     pic.setAttribute('alt', student.image)
     pic.style.width = '150px'
+    pic.classList.add('img-thumbnail')
     div.appendChild(pic)
     cell.appendChild(div)
     row.appendChild(cell)
@@ -105,11 +106,11 @@ function addStudentData(student) {
 
 function onLoad() {
 
-    fetch('http://dv-student-backend-2019.appspot.com/student').then(response => {
+    fetch('http://dv-student-backend-2019.appspot.com/students').then(response => {
         return response.json()
     })
         .then(data => {
-            addStudentData(data)
+            addStudentList(data)
         }
         )
 }
